@@ -1394,7 +1394,7 @@ int blosc2_schunk_set_slice_buffer(blosc2_schunk *schunk, int64_t start, int64_t
 int schunk_get_slice_nchunks(blosc2_schunk *schunk, int64_t start, int64_t stop, int64_t **chunks_idx) {
   BLOSC_ERROR_NULL(schunk, BLOSC2_ERROR_NULL_POINTER);
   if (schunk->nchunks == 0){  
-    *chunks_idx = malloc(0);
+    *chunks_idx = NULL;
     return 0;
   }
   int64_t byte_start = start * schunk->typesize;

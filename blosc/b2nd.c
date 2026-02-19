@@ -617,7 +617,7 @@ int b2nd_get_slice_nchunks(const b2nd_array_t *array, const int64_t *start, cons
   int8_t ndim = array->ndim;
 
   if (array->nitems == 0){  
-    *chunks_idx = malloc(0);
+    *chunks_idx = NULL;
     return 0;
   }
 
