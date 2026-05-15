@@ -1,6 +1,11 @@
 Release notes for C-Blosc2
 ==========================
 
+Changes from 3.0.3 to 3.0.4
+===========================
+
+#XXX version-specific blurb XXX#
+
 Changes from 3.0.2 to 3.0.3
 ===========================
 
@@ -23,7 +28,7 @@ Changes from 3.0.2 to 3.0.3
   bounded operations and allocation checks.  Thanks to @metsw24-max.
 
 * Validate negative indices in offset reordering to reject malformed offset
-  tables more reliably.  Thanks to @uwezkhan06.
+  tables more reliably.  Thanks to @uwezkhan.
 
 * Add regression tests covering malformed frame trailer/metalayer data,
   lazy-chunk bounds, b2nd chunk-size overflows, stdio validation, mmap error

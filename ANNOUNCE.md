@@ -20,7 +20,7 @@ This release is a bugfix and hardening release:
 
 * Validate negative indices in offset reordering.
 
-Thanks to @metsw24-max and @uwezkhan06 for contributions to this release.
+Thanks to @metsw24-max and @uwezkhan for contributions to this release.
 
 For more info, see the release notes in:
 
