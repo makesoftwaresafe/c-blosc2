@@ -1,17 +1,26 @@
-# Announcing C-Blosc2 3.0.2
+# Announcing C-Blosc2 3.0.3
 A fast, compressed, and persistent binary data store library for C.
 
 ## What is new?
 
-This release is a bugfix release:
+This release is a bugfix and hardening release:
 
-* Fix for windows when using ctx API from multiple threads.  Closes #763.
-  Thanks to Christoph Gohlke (@cgohlke).
+* Harden frame parsing against malformed trailer lengths, invalid metalayer
+  offsets and lengths, and lazy-chunk compressed sizes that extend past the
+  end of a frame.
 
-* Harden metalayer APIs against invalid lengths and unsafe memory usage.
-  PR #758.  Thanks to @metsw24-max.
+* Fix integer-overflow paths in b2nd chunk-size and slice-buffer
+  calculations.
 
-* Fix DELTA pipelines after byte-transforming filters (e.g. shuffle).
+* Improve stdio and mmap I/O safety by validating streams, file sizes,
+  offsets, integer conversions, and cleanup paths.
+
+* Replace unsafe string formatting/concatenation in several helper paths with
+  bounded operations and allocation checks.
+
+* Validate negative indices in offset reordering.
+
+Thanks to @metsw24-max and @uwezkhan06 for contributions to this release.
 
 For more info, see the release notes in:
 

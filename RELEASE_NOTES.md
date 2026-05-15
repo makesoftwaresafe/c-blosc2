@@ -4,7 +4,30 @@ Release notes for C-Blosc2
 Changes from 3.0.2 to 3.0.3
 ===========================
 
-#XXX version-specific blurb XXX#
+* Harden frame parsing against malformed trailer lengths, invalid metalayer
+  offsets and lengths, and lazy-chunk compressed sizes that extend past the
+  end of a frame.  This prevents invalid offset computation,
+  out-of-bounds reads, and a double-free on malformed inputs.  Thanks to
+  @metsw24-max.
+
+* Fix integer-overflow paths in b2nd chunk-size and slice-buffer
+  calculations that could otherwise lead to heap corruption or invalid
+  allocations.  Thanks to @metsw24-max.
+
+* Improve stdio and mmap I/O safety by validating NULL streams, file sizes,
+  offsets, and integer conversions, and by tightening cleanup/error paths.
+  Thanks to @metsw24-max.
+
+* Replace unsafe string formatting/concatenation in compressor listing,
+  codec-version reporting, directory helpers, and frame path handling with
+  bounded operations and allocation checks.  Thanks to @metsw24-max.
+
+* Validate negative indices in offset reordering to reject malformed offset
+  tables more reliably.  Thanks to @uwezkhan06.
+
+* Add regression tests covering malformed frame trailer/metalayer data,
+  lazy-chunk bounds, b2nd chunk-size overflows, stdio validation, mmap error
+  handling, and negative reorder offsets.
 
 Changes from 3.0.1 to 3.0.2
 ===========================
